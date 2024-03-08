@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SE160956_KeyboardShop_Assignment.BussinessObject\SE160956_KeyboardShop_Assignment.BussinessObject.csproj" />
+  </ItemGroup>
+
+</Project>

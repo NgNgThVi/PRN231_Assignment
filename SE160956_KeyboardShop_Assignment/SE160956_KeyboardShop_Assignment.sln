@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE160956_KeyboardShop_Assignment.API", "SE160956_KeyboardShop_Assignment\SE160956_KeyboardShop_Assignment.API.csproj", "{5663896E-E4BA-445C-9572-846F5FB69F0D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE160956_KeyboardShop_Assignment.BussinessObject", "SE160956_KeyboardShop_Assignment.BussinessObject\SE160956_KeyboardShop_Assignment.BussinessObject.csproj", "{204175C6-5E48-46EC-BBF3-5620BBEFD1E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE160956_KeyboardShop_Assignment.DataAccessObject", "SE160956_KeyboardShop_Assignment.DataAccessObject\SE160956_KeyboardShop_Assignment.DataAccessObject.csproj", "{A03E8A1C-ABF8-4C87-B676-109EDF953E8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE160956_KeyboardShop_Assignment.Repository", "SE160956_KeyboardShop_Assignment.Repository\SE160956_KeyboardShop_Assignment.Repository.csproj", "{762EF8BC-25E4-4317-AAE7-DD470D274507}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SE160956_KeyboardShop_Assignment.APIClient", "SE160956_KeyboardShop_Assignment.Client\SE160956_KeyboardShop_Assignment.APIClient.csproj", "{7D2E790F-A349-4C03-BBDE-92A2BFF8CF8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5663896E-E4BA-445C-9572-846F5FB69F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5663896E-E4BA-445C-9572-846F5FB69F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5663896E-E4BA-445C-9572-846F5FB69F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5663896E-E4BA-445C-9572-846F5FB69F0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204175C6-5E48-46EC-BBF3-5620BBEFD1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204175C6-5E48-46EC-BBF3-5620BBEFD1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204175C6-5E48-46EC-BBF3-5620BBEFD1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204175C6-5E48-46EC-BBF3-5620BBEFD1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03E8A1C-ABF8-4C87-B676-109EDF953E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03E8A1C-ABF8-4C87-B676-109EDF953E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03E8A1C-ABF8-4C87-B676-109EDF953E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03E8A1C-ABF8-4C87-B676-109EDF953E8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{762EF8BC-25E4-4317-AAE7-DD470D274507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762EF8BC-25E4-4317-AAE7-DD470D274507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762EF8BC-25E4-4317-AAE7-DD470D274507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762EF8BC-25E4-4317-AAE7-DD470D274507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D2E790F-A349-4C03-BBDE-92A2BFF8CF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D2E790F-A349-4C03-BBDE-92A2BFF8CF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D2E790F-A349-4C03-BBDE-92A2BFF8CF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D2E790F-A349-4C03-BBDE-92A2BFF8CF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB597DBE-AF58-4CF5-92FA-8A022F519C71}
+	EndGlobalSection
+EndGlobal

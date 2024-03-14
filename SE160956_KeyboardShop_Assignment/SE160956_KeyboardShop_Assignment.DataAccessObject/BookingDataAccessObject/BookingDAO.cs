@@ -1,12 +1,13 @@
-﻿using SE160956_KeyboardShop_Assignment.BussinessObject.DataAccess;
+﻿using Microsoft.EntityFrameworkCore;
+using SE160956_KeyboardShop_Assignment.BussinessObject.DataAccess;
 using SE160956_KeyboardShop_Assignment.BussinessObject.DbContexts;
 
 namespace SE160956_KeyboardShop_Assignment.DataAccessObject.BookingDataAccessObject
 {
     public class BookingDAO
     {
-        private static BookingDAO _instance = null;
-        private readonly ApplicationDbContext _dbContext = null;
+        private static BookingDAO _instance;
+        private readonly ApplicationDbContext _dbContext;
 
         public BookingDAO()
         {
@@ -26,8 +27,37 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.BookingDataAccessObj
                 }
                 return _instance;
             }
+            set
+            {
+                _instance = value;
+            }
         }
+        public async Task CreateBooking(BookingDTO request)
+        {
+            var booking = new Booking
+            {
+                Address = request.Address,
+                BookingDate = DateTime.Now,
+                BookingStatus = 0,
+                CustomerID = request.CustomerId,
+                Freight = request.Freight,
+                ShippedDate = null,
+                Total = request.TotalPrice,
+            };
+            await _dbContext.Booking.AddAsync(booking);
 
+            foreach (var item in request.ListProductsAndQuantity)
+            {
+                var bookingDetail = new BookingDetail
+                {
+                    BookingId = booking.Id,
+                    ProductId = item.ProductId,
+                    Quantity = item.ProductQuantity,
+                };
+                _dbContext.BookingDetail.Add(bookingDetail);
+            }
+            await _dbContext.SaveChangesAsync();
+        }
         public List<Booking> GetBookings()
         {
             var listBookings = new List<Booking>();

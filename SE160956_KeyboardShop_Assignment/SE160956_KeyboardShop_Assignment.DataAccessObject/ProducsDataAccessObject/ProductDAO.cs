@@ -28,9 +28,9 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             }
         }
 
-        public List<Product> GetProducts()
+        public List<BussinessObject.DataAccess.Product> GetProducts()
         {
-            var listProducts = new List<Product>();
+            var listProducts = new List<BussinessObject.DataAccess.Product>();
             try
             {
                 listProducts = _dbContext.Products.ToList();
@@ -47,9 +47,9 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             return listProducts;
         }
 
-        public List<Product> Search(string keyword)
+        public List<BussinessObject.DataAccess.Product> Search(string keyword)
         {
-            var listProducts = new List<Product>();
+            var listProducts = new List<BussinessObject.DataAccess.Product>();
             try
             {
                 listProducts = _dbContext.Products.Where(f => f.ProductName.Contains(keyword)).ToList();
@@ -66,9 +66,9 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             return listProducts;
         }
 
-        public List<Product> FindAllProductsByCategoryId(string categoryId)
+        public List<BussinessObject.DataAccess.Product> FindAllProductsByCategoryId(string categoryId)
         {
-            var listProducts = new List<Product>();
+            var listProducts = new List<BussinessObject.DataAccess.Product>();
             try
             {
                 listProducts = _dbContext.Products.Where(f => f.CategoryID == Guid.Parse(categoryId)).ToList();
@@ -80,9 +80,9 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             return listProducts;
         }
 
-        public List<Product> FindAllProductsBySupplierId(string supplierId)
+        public List<BussinessObject.DataAccess.Product> FindAllProductsBySupplierId(string supplierId)
         {
-            var listProducts = new List<Product>();
+            var listProducts = new List<BussinessObject.DataAccess.Product>();
             try
             {
                 listProducts = _dbContext.Products.Where(f => f.SupplierID == Guid.Parse(supplierId)).ToList();
@@ -94,9 +94,9 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             return listProducts;
         }
 
-        public Product FindProductById(string ProductId)
+        public BussinessObject.DataAccess.Product FindProductById(string ProductId)
         {
-            var Product = new Product();
+            var Product = new BussinessObject.DataAccess.Product();
             var string1 = ProductId;
             try
             {
@@ -112,7 +112,7 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             return Product;
         }
 
-        public void SaveProduct(Product Product)
+        public void SaveProduct(BussinessObject.DataAccess.Product Product)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             }
         }
 
-        public void UpdateProduct(Product Product)
+        public void UpdateProduct(BussinessObject.DataAccess.Product Product)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace SE160956_KeyboardShop_Assignment.DataAccessObject.ProducsDataAccessObj
             }
         }
 
-        public void DeleteProduct(Product Product)
+        public void DeleteProduct(BussinessObject.DataAccess.Product Product)
         {
             try
             {

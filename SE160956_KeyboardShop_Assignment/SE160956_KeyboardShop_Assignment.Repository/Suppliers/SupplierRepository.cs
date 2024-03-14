@@ -11,7 +11,7 @@ namespace SE160956_KeyboardShop_Assignment.Repository.Suppliers
         public List<Supplier> GetSuppliers() => SupplierDAO.Instance.GetSuppliers();
         public void UpdateSupplier(Supplier supplier) => SupplierDAO.Instance.UpdateSupplier(supplier);
         public void DeleteSupplier(Supplier supplier) => SupplierDAO.Instance.DeleteSupplier(supplier);
-        public List<Product> GetProducts(string supplierId) => ProductDAO.Instance.FindAllProductsBySupplierId(supplierId);
+        public List<BussinessObject.DataAccess.Product> GetProducts(string supplierId) => ProductDAO.Instance.FindAllProductsBySupplierId(supplierId);
     }
 
 }

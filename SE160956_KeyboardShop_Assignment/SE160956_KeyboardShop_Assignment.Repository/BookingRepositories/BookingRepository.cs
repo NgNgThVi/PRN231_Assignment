@@ -6,6 +6,13 @@ namespace SE160956_KeyboardShop_Assignment.Repository.BookingRepositories
 {
     public class BookingRepository : IBookingRepository
     {
+        private BookingDAO _dao;
+
+        public BookingRepository()
+        {
+            _dao = new BookingDAO();
+        }
+
         public Booking SaveBooking(Booking Booking) => BookingDAO.Instance.SaveBooking(Booking);
         public Booking GetBookingById(string id) => BookingDAO.Instance.FindBookingById(id);
         public List<Booking> GetBookings() => BookingDAO.Instance.GetBookings();
@@ -13,5 +20,17 @@ namespace SE160956_KeyboardShop_Assignment.Repository.BookingRepositories
         public void UpdateBooking(Booking Booking) => BookingDAO.Instance.UpdateBooking(Booking);
         public void DeleteBooking(Booking Booking) => BookingDAO.Instance.DeleteBooking(Booking);
         public List<BookingDetail> GetBookingDetails(string BookingId) => BookingDetailDAO.Instance.FindAllBookingDetailsByProductId(BookingId);
+
+        public async Task<string> CreateBook(BookingDTO request)
+        {
+            try
+            {
+                await _dao.CreateBooking(request);
+                return "Create Successfully!";
+            }catch(Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

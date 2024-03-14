@@ -20,7 +20,7 @@ namespace SE160956_KeyboardShop_Assignment.APIClient.Pages.Inheritance
         {
             var str = _context.HttpContext.Session.GetString("role");
             return str != null
-                 && str.Equals("1");
+                 && (str.Equals("1") || str.Equals("4")) ;
         }
     }
 }

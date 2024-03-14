@@ -8,7 +8,8 @@ namespace SE160956_KeyboardShop_Assignment.API.Controllers.Products
 {
     [Route("api/v1/Product")]
     [ApiController]
-    public class ProductController : ControllerBase
+/*    [Authorize(Roles = "1,4")]
+*/    public class ProductController : ControllerBase
     {
         private IProductRepository _repository;
 
@@ -18,6 +19,7 @@ namespace SE160956_KeyboardShop_Assignment.API.Controllers.Products
         }
 
         [HttpGet]
+
         public ActionResult<IEnumerable<Product>> GetProducts() => _repository.GetProducts();
 
         [HttpGet("Search/{keyword}")]
@@ -92,6 +94,7 @@ namespace SE160956_KeyboardShop_Assignment.API.Controllers.Products
             fTmp.Description = postProduct.Description;
             fTmp.UnitPrice = postProduct.UnitPrice;
             fTmp.UnitsInStock = postProduct.UnitsInStock;
+            fTmp.ProductStatus = postProduct.ProductStatus;
             fTmp.CategoryID = Guid.Parse(postProduct.CategoryID);
             fTmp.SupplierID = Guid.Parse(postProduct.SupplierID);
 

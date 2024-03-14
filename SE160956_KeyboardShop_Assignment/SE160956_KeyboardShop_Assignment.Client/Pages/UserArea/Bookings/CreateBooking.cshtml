@@ -1,0 +1,140 @@
+﻿@page
+@model SE160956_KeyboardShop_Assignment.APIClient.Pages.UserArea.Bookings.CreateBookingModel
+
+<h4>Product</h4>
+<hr />
+
+
+@{
+    ViewData["Title"] = "Create";
+
+    string USERID = HttpContext.Session.GetString("USERID");
+}
+
+<table class="table">
+    <style>
+        /* CSS cho tiêu đề */
+        .display-4 {
+            color: #333; /* Màu chữ xám đậm */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* CSS cho khung chứa  */
+        .container {
+            padding-top: 40px; /* Thêm khoảng cách phía trên */
+        }
+
+        /* CSS cho các nút bấm */
+        .btn-primary {
+            background-color: #007bff; /* Màu xanh đậm nền */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px; /* Khoảng cách giữa các nút */
+            transition: background-color 0.3s ease; /* Hiệu ứng khi rê chuột */
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+    </style>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Supplier)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Product)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.ProductQuantity)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier.SupplierAddress)
+                </td>
+            </tr>
+        }
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="BookingModel.CustomerId" value=@Model.Customer.Id hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingModel.FullName" class="control-label"></label>
+                <input asp-for="BookingModel.FullName" value=@Model.Customer.FullName class="form-control" readonly />
+                <span asp-validation-for="BookingModel.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingModel.EmailAddress" class="control-label"></label>
+                <input asp-for="BookingModel.EmailAddress" class="form-control" value=@Model.Customer.EmailAddress readonly />
+                <span asp-validation-for="BookingModel.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingModel.Address" class="control-label"></label>
+                <input asp-for="BookingModel.Address" class="form-control" required />
+                <span asp-validation-for="BookingModel.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingModel.Freight" class="control-label">Freight</label>
+                <select asp-for="BookingModel.Freight" class="form-control" asp-items="Model.FreightOptions" required>
+                    <option value="">-- Chọn phương thức vận chuyển --</option>
+                </select>
+                <span asp-validation-for="BookingModel.Freight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingModel.TotalPrice" class="control-label"></label>
+                <input asp-for="BookingModel.TotalPrice" value=@Model.TotalPrice class="form-control" type="number" readonly />
+                <span asp-validation-for="BookingModel.TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" asp-page="/UserArea/Booking/CreateBooking">Booking!</button>
+                </div>
+            </div>
+        </form>
+
+
+    <td>
+        Total price:
+    </td>
+    <td>
+            @Html.DisplayFor(modelItem => modelItem.TotalPrice)
+    </td>
+
+    </tbody>
+</table>

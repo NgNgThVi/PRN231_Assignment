@@ -1,0 +1,55 @@
+﻿@page
+@model SE160956_KeyboardShop_Assignment.APIClient.Pages.UserArea.Bookings.BookingsOfCustomerModel
+
+<p>
+    <a asp-page="/UserArea/Products/Index">Create New Booking</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].ShippedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].BookingStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Freight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Booking) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

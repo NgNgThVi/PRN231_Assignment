@@ -28,6 +28,10 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
 
@@ -59,8 +63,8 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                     b.Property<DateTime?>("ShippedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -77,28 +81,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CreateBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UnitPrice")
                         .HasColumnType("int");
 
                     b.HasKey("BookingId", "ProductId");
@@ -148,7 +131,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"),
                             CategoryName = "Bàn phím cơ",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6352),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7501),
                             Description = "Keyboard",
                             IsDeleted = false
                         },
@@ -156,7 +139,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("b7101212-c852-4be6-8eed-031b096b2dd4"),
                             CategoryName = "Switch",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6380),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7533),
                             Description = "Switch",
                             IsDeleted = false
                         },
@@ -164,7 +147,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("cb85b07b-2fcc-497c-9007-8912a86c2f4f"),
                             CategoryName = "Keycap",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6382),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7536),
                             Description = "Keycap",
                             IsDeleted = false
                         },
@@ -172,7 +155,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("d302148f-1677-4094-8fa7-1c6b54ff8b69"),
                             CategoryName = "Phụ kiện",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6384),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7547),
                             Description = "Phụ kiện",
                             IsDeleted = false
                         });
@@ -222,7 +205,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("d38a7009-fa0c-4fd1-815f-49879dfcbfb7"),
                             AccountPassword = "@5",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6611),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7753),
                             EmailAddress = "admin@gmail.com",
                             FullName = "Administrator",
                             IsDeleted = false,
@@ -232,7 +215,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("c71f13e6-3a8f-4bfa-975e-c05dac1707eb"),
                             AccountPassword = "@5",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6615),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7757),
                             EmailAddress = "staff@gmail.com",
                             FullName = "Staff",
                             IsDeleted = false,
@@ -242,7 +225,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("4694a7a2-e609-4bfc-bd6f-6f082367181d"),
                             AccountPassword = "@5",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6617),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7763),
                             EmailAddress = "manager@gmail.com",
                             FullName = "Manager",
                             IsDeleted = false,
@@ -252,7 +235,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("2477cb57-b562-469d-8f78-0a96663cb5e2"),
                             AccountPassword = "@5",
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6619),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7766),
                             EmailAddress = "customer@gmail.com",
                             FullName = "Customer",
                             IsDeleted = false,
@@ -319,7 +302,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("6cb4dd24-4dec-4ec2-8dab-5d677f11cffb"),
                             CategoryID = new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"),
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6567),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7725),
                             Description = "Moongeek",
                             IsDeleted = false,
                             ProductName = "Moongeek",
@@ -332,7 +315,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("ccf6f1d5-beda-4832-8eae-1d82280693c0"),
                             CategoryID = new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"),
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6590),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7730),
                             Description = "BP",
                             IsDeleted = false,
                             ProductName = "Anko Blackping",
@@ -345,7 +328,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         {
                             Id = new Guid("4cee7a0f-17f9-4f49-aa3c-8dce72b8abe1"),
                             CategoryID = new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"),
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6594),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7734),
                             Description = "Tokyo",
                             IsDeleted = false,
                             ProductName = "Tokyo world tour Anko",
@@ -400,7 +383,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         new
                         {
                             Id = new Guid("fc1d6720-4461-418c-8680-8ad859eda033"),
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6508),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7703),
                             IsDeleted = false,
                             SupplierAddress = "Ha Noi",
                             SupplierName = "Nguyễn Vĩ Shop",
@@ -409,7 +392,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                         new
                         {
                             Id = new Guid("f60db79f-1c7e-4b2b-a3f2-4551942ccdd6"),
-                            Created = new DateTime(2024, 3, 8, 21, 7, 59, 375, DateTimeKind.Local).AddTicks(6511),
+                            Created = new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7707),
                             IsDeleted = false,
                             SupplierAddress = "Ho Chi Minh",
                             SupplierName = "Vĩ Nguyễn Shop",

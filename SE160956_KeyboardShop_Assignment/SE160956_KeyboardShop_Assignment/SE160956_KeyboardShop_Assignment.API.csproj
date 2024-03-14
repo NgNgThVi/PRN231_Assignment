@@ -23,4 +23,8 @@
     <ProjectReference Include="..\SE160956_KeyboardShop_Assignment.Repository\SE160956_KeyboardShop_Assignment.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Test\" />
+  </ItemGroup>
+
 </Project>

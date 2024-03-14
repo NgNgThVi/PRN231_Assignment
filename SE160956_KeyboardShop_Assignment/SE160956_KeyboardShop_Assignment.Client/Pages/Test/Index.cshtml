@@ -1,0 +1,84 @@
+﻿@page
+@model SE160956_KeyboardShop_Assignment.APIClient.Pages.Test.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].AccountPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].CreateBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].LastModified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].LastModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

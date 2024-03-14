@@ -1,0 +1,74 @@
+﻿@page
+@model SE160956_KeyboardShop_Assignment.APIClient.Pages.Test.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Customer.AccountPassword" class="control-label"></label>
+                <input asp-for="Customer.AccountPassword" class="form-control" />
+                <span asp-validation-for="Customer.AccountPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.FullName" class="control-label"></label>
+                <input asp-for="Customer.FullName" class="form-control" />
+                <span asp-validation-for="Customer.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.EmailAddress" class="control-label"></label>
+                <input asp-for="Customer.EmailAddress" class="form-control" />
+                <span asp-validation-for="Customer.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.Role" class="control-label"></label>
+                <input asp-for="Customer.Role" class="form-control" />
+                <span asp-validation-for="Customer.Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.Created" class="control-label"></label>
+                <input asp-for="Customer.Created" class="form-control" />
+                <span asp-validation-for="Customer.Created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.CreateBy" class="control-label"></label>
+                <input asp-for="Customer.CreateBy" class="form-control" />
+                <span asp-validation-for="Customer.CreateBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.LastModified" class="control-label"></label>
+                <input asp-for="Customer.LastModified" class="form-control" />
+                <span asp-validation-for="Customer.LastModified" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.LastModifiedBy" class="control-label"></label>
+                <input asp-for="Customer.LastModifiedBy" class="form-control" />
+                <span asp-validation-for="Customer.LastModifiedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Customer.IsDeleted" /> @Html.DisplayNameFor(model => model.Customer.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

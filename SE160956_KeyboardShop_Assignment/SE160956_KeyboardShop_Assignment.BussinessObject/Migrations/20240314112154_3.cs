@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
 {
     /// <inheritdoc />
-    public partial class _1 : Migration
+    public partial class _3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -77,7 +77,8 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BookingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ShippedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Total = table.Column<int>(type: "int", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Total = table.Column<double>(type: "float", nullable: false),
                     BookingStatus = table.Column<int>(type: "int", nullable: false),
                     Freight = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -103,7 +104,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FlowerBouquetName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    ProductName = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     UnitPrice = table.Column<int>(type: "int", nullable: false),
                     UnitsInStock = table.Column<int>(type: "int", nullable: false),
@@ -139,14 +140,7 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                 {
                     BookingId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UnitPrice = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    Discount = table.Column<int>(type: "int", nullable: false),
-                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreateBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastModified = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,10 +164,10 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                 columns: new[] { "Id", "CategoryName", "CreateBy", "Created", "Description", "IsDeleted", "LastModified", "LastModifiedBy" },
                 values: new object[,]
                 {
-                    { new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), "Bàn phím cơ", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1548), "Keyboard", false, null, null },
-                    { new Guid("b7101212-c852-4be6-8eed-031b096b2dd4"), "Switch", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1576), "Switch", false, null, null },
-                    { new Guid("cb85b07b-2fcc-497c-9007-8912a86c2f4f"), "Keycap", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1579), "Keycap", false, null, null },
-                    { new Guid("d302148f-1677-4094-8fa7-1c6b54ff8b69"), "Phụ kiện", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1581), "Phụ kiện", false, null, null }
+                    { new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), "Bàn phím cơ", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7501), "Keyboard", false, null, null },
+                    { new Guid("b7101212-c852-4be6-8eed-031b096b2dd4"), "Switch", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7533), "Switch", false, null, null },
+                    { new Guid("cb85b07b-2fcc-497c-9007-8912a86c2f4f"), "Keycap", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7536), "Keycap", false, null, null },
+                    { new Guid("d302148f-1677-4094-8fa7-1c6b54ff8b69"), "Phụ kiện", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7547), "Phụ kiện", false, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -181,10 +175,10 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                 columns: new[] { "Id", "AccountPassword", "CreateBy", "Created", "EmailAddress", "FullName", "IsDeleted", "LastModified", "LastModifiedBy", "Role" },
                 values: new object[,]
                 {
-                    { new Guid("2477cb57-b562-469d-8f78-0a96663cb5e2"), "@5", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1821), "customer@gmail.com", "Customer", false, null, null, 4 },
-                    { new Guid("4694a7a2-e609-4bfc-bd6f-6f082367181d"), "@5", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1816), "manager@gmail.com", "Manager", false, null, null, 3 },
-                    { new Guid("c71f13e6-3a8f-4bfa-975e-c05dac1707eb"), "@5", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1813), "staff@gmail.com", "Staff", false, null, null, 2 },
-                    { new Guid("d38a7009-fa0c-4fd1-815f-49879dfcbfb7"), "@5", null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1810), "admin@gmail.com", "Administrator", false, null, null, 1 }
+                    { new Guid("2477cb57-b562-469d-8f78-0a96663cb5e2"), "@5", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7766), "customer@gmail.com", "Customer", false, null, null, 4 },
+                    { new Guid("4694a7a2-e609-4bfc-bd6f-6f082367181d"), "@5", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7763), "manager@gmail.com", "Manager", false, null, null, 3 },
+                    { new Guid("c71f13e6-3a8f-4bfa-975e-c05dac1707eb"), "@5", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7757), "staff@gmail.com", "Staff", false, null, null, 2 },
+                    { new Guid("d38a7009-fa0c-4fd1-815f-49879dfcbfb7"), "@5", null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7753), "admin@gmail.com", "Administrator", false, null, null, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -192,18 +186,18 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.Migrations
                 columns: new[] { "Id", "CreateBy", "Created", "IsDeleted", "LastModified", "LastModifiedBy", "SupplierAddress", "SupplierName", "Telephone" },
                 values: new object[,]
                 {
-                    { new Guid("f60db79f-1c7e-4b2b-a3f2-4551942ccdd6"), null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1715), false, null, null, "Ho Chi Minh", "Vĩ Nguyễn Shop", "0123456789" },
-                    { new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1711), false, null, null, "Ha Noi", "Nguyễn Vĩ Shop", "0123456789" }
+                    { new Guid("f60db79f-1c7e-4b2b-a3f2-4551942ccdd6"), null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7707), false, null, null, "Ho Chi Minh", "Vĩ Nguyễn Shop", "0123456789" },
+                    { new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7703), false, null, null, "Ha Noi", "Nguyễn Vĩ Shop", "0123456789" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "CategoryID", "CreateBy", "Created", "Description", "FlowerBouquetName", "IsDeleted", "LastModified", "LastModifiedBy", "ProductStatus", "SupplierID", "UnitPrice", "UnitsInStock" },
+                columns: new[] { "Id", "CategoryID", "CreateBy", "Created", "Description", "IsDeleted", "LastModified", "LastModifiedBy", "ProductName", "ProductStatus", "SupplierID", "UnitPrice", "UnitsInStock" },
                 values: new object[,]
                 {
-                    { new Guid("4cee7a0f-17f9-4f49-aa3c-8dce72b8abe1"), new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1792), "Tokyo", "Tokyo world tour Anko", false, null, null, 1, new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), 2500000, 100 },
-                    { new Guid("6cb4dd24-4dec-4ec2-8dab-5d677f11cffb"), new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1771), "Moongeek", "Moongeek", false, null, null, 1, new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), 1750000, 69 },
-                    { new Guid("ccf6f1d5-beda-4832-8eae-1d82280693c0"), new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), null, new DateTime(2024, 3, 8, 14, 4, 30, 716, DateTimeKind.Local).AddTicks(1778), "BP", "Anko Blackping", false, null, null, 1, new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), 2500000, 96 }
+                    { new Guid("4cee7a0f-17f9-4f49-aa3c-8dce72b8abe1"), new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7734), "Tokyo", false, null, null, "Tokyo world tour Anko", 1, new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), 2500000, 100 },
+                    { new Guid("6cb4dd24-4dec-4ec2-8dab-5d677f11cffb"), new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7725), "Moongeek", false, null, null, "Moongeek", 1, new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), 1750000, 69 },
+                    { new Guid("ccf6f1d5-beda-4832-8eae-1d82280693c0"), new Guid("2c81c8f6-cae1-46a6-9bc4-71f29f6da74e"), null, new DateTime(2024, 3, 14, 18, 21, 54, 789, DateTimeKind.Local).AddTicks(7730), "BP", false, null, null, "Anko Blackping", 1, new Guid("fc1d6720-4461-418c-8680-8ad859eda033"), 2500000, 96 }
                 });
 
             migrationBuilder.CreateIndex(

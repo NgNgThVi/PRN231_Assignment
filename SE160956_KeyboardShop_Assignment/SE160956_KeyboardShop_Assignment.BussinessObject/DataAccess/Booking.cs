@@ -8,8 +8,14 @@ namespace SE160956_KeyboardShop_Assignment.BussinessObject.DataAccess
     {
         public DateTime BookingDate { get; set; }
         public DateTime? ShippedDate { get; set; }
+        public string Address { get; set; } = null!;
         [Required]
-        public int Total { get; set; }
+        public double Total { get; set; }
+        /// <summary>
+        /// 0. Not Yet
+        /// 1. Accepted
+        /// 3. Shipped
+        /// </summary>
         [Required]
         public int BookingStatus { get; set; }
         [Required]

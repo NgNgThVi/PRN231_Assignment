@@ -72,7 +72,7 @@ namespace SE160956_KeyboardShop_Assignment.APIClient.Pages
                 {
                     _context.HttpContext.Session.SetString("token", content);
                     _context.HttpContext.Session.SetString("USERID", userId);
-                    return RedirectToPage("/CustomerArea/MyOrder/Index");
+                    return RedirectToPage("/Manage/CustomerPageModel");
                 }
                 else
                 {

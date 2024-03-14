@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SE160956_KeyboardShop_Assignment.BussinessObject.DataAccess;
+using SE160956_KeyboardShop_Assignment.DataAccessObject.BookingDataAccessObject;
 using SE160956_KeyboardShop_Assignment.Models;
 using SE160956_KeyboardShop_Assignment.Repository.BookingDetailRepositories;
 using SE160956_KeyboardShop_Assignment.Repository.BookingRepositories;
@@ -22,6 +23,15 @@ namespace SE160956_KeyboardShop_Assignment.API.Controllers.Bookings
             _BookingRepository = BookingRepository;
             _BookingDetailRepository = BookingDetailRepository;
             _ProductRepository = ProductRepository;
+        }
+
+        [Authorize(Roles = "4")]
+        [HttpPost]
+        [Route("create-booking")]
+        public async Task<IActionResult> CreateBook(BookingDTO request)
+        {
+            var response = await _BookingRepository.CreateBook(request);
+            return Ok(response);
         }
 
         [Authorize(Roles = "1")]
@@ -107,10 +117,8 @@ namespace SE160956_KeyboardShop_Assignment.API.Controllers.Bookings
                 var BookingDetail = new BookingDetail
                 {
                     ProductId = Guid.Parse(od.ProductID),
-                    UnitPrice = od.UnitPrice,
                     Quantity = od.Quantity,
                     BookingId = savedBooking.Id,
-                    Discount = 0
                 };
                 _ProductRepository.UpdateProduct(fb);
                 _BookingDetailRepository.SaveBookingDetail(BookingDetail);

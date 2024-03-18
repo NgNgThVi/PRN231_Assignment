@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option csharp_namespace= "PetShop.GRPC";
+
+package product;
+
+message GetAllProductsRequest{
+    string name = 1; 
+    int32 price = 2;
+    string categoryId = 3;
+    string status = 4;
+}
+
+message GetAllProductsResponse {
+  repeated ProductResponse product = 1;
+}
+
+message CreateProductRequest {
+    string name = 1; 
+    int32 price = 2;
+    string categoryId = 3;
+    string status = 4;
+}
+
+message UpdateProductRequest {
+    string id = 1;
+    string name = 2; 
+    int32 price = 3;
+    string categoryId = 4;
+    string status = 5;
+}
+
+message DeleteProductRequest {
+    string id = 1;
+}
+
+message ProductResponse {
+    string id = 1;
+    string name = 2; 
+    int32 price = 3;
+    string categoryId = 4;
+    string status = 5;
+}
+
+service ProductServices {
+    rpc GetAllProducts(GetAllProductsRequest) returns (GetAllProductsResponse) {}
+    rpc CreateProduct(CreateProductRequest) returns (ProductResponse) {}
+    rpc UpdateProduct(UpdateProductRequest) returns (ProductResponse) {}
+    rpc DeleteProduct(DeleteProductRequest) returns (ProductResponse) {}
+}
